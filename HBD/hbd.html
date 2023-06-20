@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poetry Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url("images/izzy2.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slider {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      height: 400px;
+      background: rgba(214, 185, 188, 0.8);
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .arrow-left {
+      left: 20px;
+    }
+
+    .arrow-right {
+      right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="slider">
+      <div class="slide active">
+        <div class="slide-content">
+          <h2>Poem 1</h2>
+          <p>Though I'm a bit late, my wishes are true,
+            Belated birthday greetings, just for you.
+            Three days may have passed, but in my heart,
+            You're cherished and loved, never apart.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 2</h2>
+          <p>You bring sunshine and laughter to my days,
+            In your presence, life's hues are ablaze.
+            So here's a belated wish, heartfelt and sincere,
+            For a year ahead, filled with joy and cheer.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 3</h2>
+          <p>Though I'm late, my wishes for you are true,
+            A friend like you, so rare and few.
+            Happy birthday, my dear,
+            May laughter and love be forever near.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 4</h2>
+          <p>Time flew by, and I missed the date,
+            But my love for you will never abate.
+            Belated birthday wishes, my faithful friend,
+            May your life be blessed, like a heavenly slate.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 5</h2>
+          <p>You deserve all the happiness in the world,
+            For you, my friend, are a gem unfurled.
+            So blow out the candles, make a wish true,
+            Know that I'm here, always cheering for you.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 6</h2>
+          <p>In this journey we call life,
+            You're the friend who eases my strife.
+            Together we'll laugh, together we'll cry,
+            Forever friends, you and I.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 7</h2>
+          <p>In the tapestry of friendship, love weaves its thread,
+            A bond so deep, it's never misled.
+            You're the one who knows me inside out,
+            A friend and confidante, without a doubt.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 8</h2>
+          <p>In your eyes, I see a love so true,
+            A connection that words can't fully construe.
+            You're my best friend and so much more,
+            A love that's eternal, to the very core.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 9</h2>
+          <p>Our friendship blossomed into something rare,
+            Love intertwined, a connection we both share.
+            With you, my heart finds solace and bliss,
+            A friendship turned into a love that I'll never miss.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>Poem 10</h2>
+          <p>To my best friend, with love I say,
+            You brighten my world in every way.
+            With a heart so kind and a spirit so free,
+            Forever grateful, you mean the world to me.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-content">
+          <h2>❤️</h2>
+          <p>Happy Birthday Love.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow arrow-left" onclick="prevSlide()">&#8249;</div>
+    <div class="arrow arrow-right" onclick="nextSlide()">&#8250;</div>
+    <!-- Add the audio element for background music -->
+    <audio src="images/Ed-Sheeran-Photograph-via-Naijafinix.com_.mp3" loop autoplay></audio>
+  </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(slideIndex) {
+      if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+      } else if (slideIndex >= slides.length) {
+        slideIndex = 0;
+      }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+      }
+      slides[slideIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  </script>
+</body>
+
+</html>
